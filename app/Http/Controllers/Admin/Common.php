@@ -13,7 +13,7 @@ class Common extends Controller
     public function uploadPic(){
 //        dd(request()->file('file'));
         $path = request()->file('file')->store(request('dir','common'));
-        returnAjax(0,'success', ['path'=>$path,'url'=>asset("storage/{$path}")]);
+        returnAjax(0,'success', ['path'=>"storage/{$path}",'url'=>asset("storage/{$path}")]);
     }
 
     /**

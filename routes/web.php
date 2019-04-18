@@ -22,6 +22,7 @@ Route::group(['prefix'=>'/admin/admins','middleware'=>[CheckAdminLogin::class]],
     Route::get('/list','Admin\Admins@adminsList');
     Route::get('/add','Admin\Admins@adminsAddPre');
     Route::post('/add','Admin\Admins@adminsAddDo');
+    Route::get('/editAdmins','Admin\Admins@editAdmins');
 
 });
 

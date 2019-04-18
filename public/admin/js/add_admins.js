@@ -53,6 +53,19 @@ function myFormSubmit(){
 
     var file = $('input[name=avatar]')[0]['files'][0];
     uploadFile(file,fn);
+}
 
-
+function uploadImg(){
+    if($(this)[0]['files'].length){
+        layer.load(1, {shade: false})
+        var file = $(this)[0]['files'][0];
+        var iptName = $(this).data('ipt');
+        var that = this
+        var fn = function(res){
+            layer.closeAll()
+            $("input[name="+iptName+"]").val(res.data.path)
+            $(that).prev().attr('src',res.data.url)
+        }
+        uploadFile(file,fn);
+    }
 }

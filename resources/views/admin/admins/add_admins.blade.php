@@ -45,11 +45,11 @@
                         </div>
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">管理员头像</label>
-                            <div class="col-lg-9">
-                                <div class="form-group files color  mb-lg-0">
-                                    <input type="file" name="avatar" class="form-control1 dis-empty" multiple="">
-                                </div>
+                            <div class="col-lg-2" style="position:relative;">
+                                <img style="width:100px;height:100px;" data-src="/admin/images/upload.png" src="/admin/images/upload.png" />
+                                <input style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:1000;cursor:pointer;opacity: 0;" type="file" data-ipt="avatar" onchange="uploadImg.call(this)" />
                             </div>
+                            <input type="hidden" name="avatar" />
                         </div>
 
                         <div class="form-group row">

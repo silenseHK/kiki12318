@@ -11,7 +11,9 @@ class Admins extends Controller
 {
     public function adminsList(){
         $list = Admin::where(['admin_id'=>1])->get();
-        dd($list);
+        foreach($list as& $v)
+            $v->avatar = asset($v->avatar);
+        return view('admin.admins.list_admins',compact('list'));
     }
 
     public function adminsAddPre(){
@@ -46,6 +48,23 @@ class Admins extends Controller
         if(!$res)
             returnAjax(1,'添加失败');
         returnAjax(0,'添加成功');
+
+    }
+
+    /**
+     * 修改管理员基本信息
+     */
+    public function editAdmins(){
+        #验证
+        $this->validate(request(),[
+            'admin_id' => 'required|integer|min:1'
+        ]);
+
+        $admin_id = (int)request('admin_id',0);
+        #获取信息
+        $info = Admin::select('admin_id','nickname','avatar','phone','email')->find($admin_id);
+
+        return view('admin.admins.edit_admins',compact('info'));
 
     }
 
