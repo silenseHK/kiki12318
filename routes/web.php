@@ -43,3 +43,9 @@ Route::group(['prefix'=>'/admin','middleware'=>['web']],function(){
 Route::group(['prefix'=>'/common'],function(){
     Route::post('/uploadPic','Admin\Common@uploadPic');
 });
+
+Route::group(['prefix'=>'admin'],function(){
+
+    Route::get('/redis','Admin\Redis@index');
+
+});
