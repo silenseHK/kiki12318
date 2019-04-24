@@ -27,6 +27,31 @@ return [
         'url' => '/admin/goods/index',
         'name' => '产品管理',
         'icon' => 'fa-cube',
+        'child' => [
+            'list' => [
+                'url' => '/admin/goods/list',
+                'name' => '产品列表',
+            ],
+            'add' => [
+                'url' => '/admin/goods/add',
+                'name' => '添加产品',
+            ]
+        ]
+    ],
+    'category' => [
+        'url' => '/admin/category/index',
+        'name' => '分类管理',
+        'icon' => 'fa-sitemap',
+        'child' => [
+            'list' => [
+                'url' => '/admin/category/list',
+                'name' => '分类列表'
+            ],
+            'add' => [
+                'url' => '/admin/category/add',
+                'name' => '添加分类'
+            ]
+        ]
     ]
 
 ];

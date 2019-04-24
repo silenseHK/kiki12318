@@ -14,11 +14,13 @@ class DRedis extends \Redis
 
     public function __construct()
     {
-
-        $connect = $this->connect(env('REDIS_HOST','127.0.0.1'),env('REDIS_PORT',6379),1);
-        if(!$connect)
-            throw new \Exception('redis连接失败');
-
+        try{
+            $connect = $this->connect(env('REDIS_HOST','127.0.0.1'),env('REDIS_PORT',6379),1);
+            if(!$connect)
+                throw new \Exception('redis连接失败');
+        }catch(\Exception $e){
+            throw new \Exception($e->getMessage());
+        }
     }
 
 }

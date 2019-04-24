@@ -30,6 +30,8 @@ Route::group(['prefix'=>'/admin','middleware'=>[CheckAdminLogin::class]],functio
 
     Route::get('/goods/index','Admin\Goods@index');
     Route::get('/index','Admin\Index@index');
+    Route::get('/category/add','Admin\Category@add');
+    Route::get('/category/list','Admin\Category@lists');
 
 });
 
